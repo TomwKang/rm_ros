@@ -77,4 +77,4 @@ ros2 run rm_base simple_base_node --ros-args --remap __node:=【结点名】
   发：接收topic：名字（/cmd_gimbal）, 类型msg（GimbalCmd）.position.yaw/pitch ，发送到串口
   收：接收串口，mode=0x00正常模式/0x01自瞄模式 
 
-  change tom and morty
+  change tom and jerry
