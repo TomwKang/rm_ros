@@ -75,4 +75,6 @@ ros2 topic pub /cmd_gimbal rm_interfaces/msg/GimbalCmd "{position: {pitch: 3.0, 
 ros2 run rm_base simple_base_node --ros-args --remap __node:=【结点名】
 收发一体结点，
   发：接收topic：名字（/cmd_gimbal）, 类型msg（GimbalCmd）.position.yaw/pitch ，发送到串口
-  收：接收串口，mode=0x00正常模式/0x01自瞄模式 2
+  收：接收串口，mode=0x00正常模式/0x01自瞄模式 
+
+  change tom
