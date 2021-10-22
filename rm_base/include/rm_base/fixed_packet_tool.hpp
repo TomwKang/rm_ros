@@ -79,11 +79,14 @@ namespace rm_base
     {
         if (transporter_->write(packet.buffer(), capacity) == capacity)
         {
+<<<<<<< HEAD
             std::cout<<"send:  ";
             for (int i = 0; i < capacity; i++){
                 std::cout << +packet.buffer()[i]<< " ";
             }
             std::cout<<"\n";
+=======
+>>>>>>> ba24a50cc3aaa2e2049c267fa658a8d2cd5b13e8
             return true;
         }
         else
@@ -112,6 +115,7 @@ namespace rm_base
         // std::cout<<"\n";
         
         int recv_len = transporter_->read(tmp_buffer_, capacity);
+<<<<<<< HEAD
 
         std::cout<<"recv:  ";
         for (int i = 0; i < capacity; i++){
@@ -119,6 +123,8 @@ namespace rm_base
         }
         std::cout<<"\n";
 
+=======
+>>>>>>> ba24a50cc3aaa2e2049c267fa658a8d2cd5b13e8
         if (recv_len > 0)
         {
             //检测帧是否有错误
