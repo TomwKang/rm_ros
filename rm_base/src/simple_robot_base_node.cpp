@@ -183,6 +183,6 @@ namespace rm_base
     }
 }
 
-// #include "rclcpp_components/register_node_macro.hpp"
+#include "rclcpp_components/register_node_macro.hpp"
 
-// RCLCPP_COMPONENTS_REGISTER_NODE(rm_base::SimpleRobotBaseNode)
+RCLCPP_COMPONENTS_REGISTER_NODE(rm_base::SimpleRobotBaseNode)

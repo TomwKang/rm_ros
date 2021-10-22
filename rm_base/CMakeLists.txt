@@ -49,10 +49,6 @@ install(
   DIRECTORY include/
   DESTINATION include
 )
-<<<<<<< HEAD
-
-=======
->>>>>>> ba24a50cc3aaa2e2049c267fa658a8d2cd5b13e8
 install(TARGETS ${PROJECT_NAME}
   EXPORT ${PROJECT_NAME}
   LIBRARY DESTINATION lib
@@ -64,21 +60,17 @@ install(TARGETS simple_robot_base
   DESTINATION lib/${PROJECT_NAME}
 )
 
-<<<<<<< HEAD
-if(BUILD_TESTING)
-  find_package(ament_lint_auto REQUIRED)
-  ament_lint_auto_find_test_dependencies()
-=======
 install(
   DIRECTORY launch
   DESTINATION share/${PROJECT_NAME}
 )
 
+# register component nodes
+rclcpp_components_register_node(${PROJECT_NAME} "rm_base::SimpleRobotBaseNode")
+
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
   ament_lint_auto_find_test_dependencies()
-  # add_subdirectory(test)
->>>>>>> ba24a50cc3aaa2e2049c267fa658a8d2cd5b13e8
 endif()
 
 ament_package()
