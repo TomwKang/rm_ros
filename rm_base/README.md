@@ -35,7 +35,19 @@ colcon build
 eg. 
 0xff 0x01 0x01 (2.0) (3.0) 0x00 0x00 0x00 BCC校验位 0x0d
 
-**下位机**只需要上位机（miniPC）提供pitch(3-6位)、yaw(7-10位)，加速度
+## 32位包格式:
+包头 cmd控制(默认为0xa1) mode模式切换（0x00正常模式上位机不发送，0x01自瞄模式发送数据） positon:pitch、yaw（float32:4字节） velocity:pitch、yaw（float32:4字节） BCC校验位 包尾
+
+|HEAD |CMD  |MODE      |p.PITCH |p.YAW  | v.PITCH | v.YAW |   |bcc |TAIL|
+|---|---|---|---|---|---|---|---|---|---|
+|0xff|0x01|0x00/0x01|3-6|7-10|11-14|15-18|19-29|30|0x0d|
+
+eg. 
+0xff 0x01 0x01 (2.0) (3.0) (1.0) (1.0) 0x00 BCC校验位 0x0d
+
+**下位机**只需要上位机（miniPC）提供 
+#### 击打点位置：**position** [**pitch(3-6)、yaw(7-10)**]
+#### 速度：**velocity** [**pitch(11-14)、yaw(15-18)**]
 或者其他参数需要进一步改进；
 
 **上位机**只需要下位机（STM32）cmd控制与mode自瞄/正常模式切换
@@ -72,7 +84,15 @@ ros2 topic pub /cmd_gimbal rm_interfaces/msg/GimbalCmd "{position: {pitch: 3.0, 
 
 
 ## run指令结点建立（未完成）
+```
 ros2 run rm_base simple_base_node --ros-args --remap __node:=【结点名】
+<<<<<<< HEAD
 收发一体结点，
   发：接收topic：名字（/cmd_gimbal）, 类型msg（GimbalCmd）.position.yaw/pitch ，发送到串口
   收：接收串口，mode=0x00正常模式/0x01自瞄模式1
+=======
+```
+  **发**：接收topic：名字（/cmd_gimbal）, 类型msg（GimbalCmd）.position.yaw/pitch ，发送到串口
+  
+  **收**：接收串口，mode=0x00正常模式/0x01自瞄模式
+>>>>>>> 16e8dc15afef852b03dd0c0730322daba0646712
