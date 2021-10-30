@@ -58,20 +58,20 @@ namespace rm_base
         options.c_cflag &= ~CSIZE;
         switch (databits)
         {
-            case 5:
-                options.c_cflag |= CS5;
-                break;
-            case 6:
-                options.c_cflag |= CS6;
-                break;
-            case 7:
-                options.c_cflag |= CS7;
-                break;
-            case 8:
-                options.c_cflag |= CS8;
-                break;
-            default:
-                fprintf(stderr, "Unsupported data size:%d!!!\n", databits);
+        case 5:
+            options.c_cflag |= CS5;
+            break;
+        case 6:
+            options.c_cflag |= CS6;
+            break;
+        case 7:
+            options.c_cflag |= CS7;
+            break;
+        case 8:
+            options.c_cflag |= CS8;
+            break;
+        default:
+            fprintf(stderr, "Unsupported data size!!!\n");
         }
 
         //设置校验位
@@ -148,7 +148,8 @@ namespace rm_base
             return true;
         }
         fd_ = ::open(device_path_.c_str(), O_RDWR | O_NOCTTY | O_NDELAY); //打开设备
-        if (fd_ == -1){
+        if (fd_ == -1)
+        {
             printf("cannot open uart device: %s\n", device_path_.c_str());
             return false;
         } else{
@@ -170,7 +171,6 @@ namespace rm_base
         // 设置串口数据帧格式
         if (set_param(speed_, flow_ctrl_, databits_, stopbits_, parity_))
         {
-            // printf("set serial param:\nspeed: %s\nflow_ctrl: %s\ndatabits: %s\nstopbits: %s\nparity: %s\n");
             printf("set param\n");
             return false;
         }

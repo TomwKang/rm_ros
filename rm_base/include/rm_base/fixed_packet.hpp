@@ -38,18 +38,10 @@ namespace rm_base
         template <typename T, int data_len = sizeof(T)>
         bool load_data(T const &data, int index)
         {
-            // std::cout << index << " : " << +data ;
-            // std::cout << "\n";
-            
             //越界检测，data_types--buffer_(1,capacity-2)
             if (index > 0 && ((index + data_len) < (capacity - 2)))
             {
                 memcpy(buffer_ + index, &data, data_len);
-                // std::cout << data_len << ":";
-                // for (int i = 0; i < int(sizeof(T)); i++){
-                //     std::cout << +buffer_[index+i]<< " ";
-                // }
-                // std::cout << "\n";
                 return true;
             }
             return false;

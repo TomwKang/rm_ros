@@ -38,10 +38,7 @@ namespace rm_base
         std::string serial_name;
         bool SerialSend;
         bool SerialRecv;
-<<<<<<< HEAD
         bool debug;
-=======
->>>>>>> ba24a50cc3aaa2e2049c267fa658a8d2cd5b13e8
     };
 }
 

@@ -166,8 +166,9 @@ namespace rm_base
         {  
             //串口名改变
             node_->get_parameter("serial_name",serial_name_temp);
-            // RCLCPP_INFO(node_->get_logger(), "serialName: %s，%s", serial_name_temp.c_str(), this->serial_name.c_str()); 
-
+            /*DEBUG--- 
+            RCLCPP_INFO(node_->get_logger(), "serialName: %s，%s", serial_name_temp.c_str(), this->serial_name.c_str()); 
+            ---DEBUG*/
             auto transporter_temp = std::make_shared<rm_base::UartTransporter>(serial_name_temp);
             if(serial_name_temp != this->serial_name)  
             {

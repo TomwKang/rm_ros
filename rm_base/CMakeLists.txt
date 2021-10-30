@@ -42,8 +42,6 @@ ament_export_dependencies(${dependencies})
 add_executable(simple_robot_base src/simple_robot_base_main.cpp)
 target_link_libraries(simple_robot_base ${PROJECT_NAME})
 
-#register component nodes
-# rclcpp_components_register_node(${PROJECT_NAME} "rm_base::SimpleRobotBaseNode")
 
 install(
   DIRECTORY include/
@@ -66,7 +64,7 @@ install(
 )
 
 # register component nodes
-rclcpp_components_register_node(${PROJECT_NAME} "rm_base::SimpleRobotBaseNode")
+rclcpp_components_register_nodes(${PROJECT_NAME} "rm_base::SimpleRobotBaseNode")
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
